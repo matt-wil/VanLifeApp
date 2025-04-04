@@ -13,13 +13,13 @@ function App() {
             <NavLink className="text-4xl" to="/">#VanLife</NavLink>
           <nav className='flex gap-5 m-4 '>
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/vans">Vans</NavLink>
+            <NavLink to="/campsites">Campsites</NavLink>
           </nav>
         </header>
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/about' element={<About />}/>
-          <Route path='/vans' element={<Vans />}/>
+          <Route path='/campsites' element={<CampgroundSearch />}/>
         </Routes>
       </BrowserRouter>
     </>
