@@ -18,6 +18,7 @@ function useCampgroundData(searchQuery) {
             })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data);
                 setData(data.results);
                 setLoading(false);
             })
