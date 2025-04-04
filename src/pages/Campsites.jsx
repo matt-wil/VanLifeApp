@@ -1,7 +1,7 @@
 // API call test
 import React, { useEffect, useState } from 'react';
 
-const CAMPLFLARE_API_KEY = import.meta.env.CAMPLFLARE_API_KEY;
+const VITE_CAMPLFLARE_API_KEY = import.meta.env.VITE_CAMPLFLARE_API_KEY;
 
 function useCampgroundData(searchQuery) {
     const [data, setData] = useState(null);
@@ -12,11 +12,11 @@ function useCampgroundData(searchQuery) {
         if (!searchQuery) return;
 
         setLoading(true);
-            fetch(`https://api.campflare.com/v1/campgrounds/search?q=${searchQuery}`, {
+            fetch(`/api/campgrounds?q=${searchQuery}`, {
                 method: 'GET',
                 headers: {
                     "Accept": "application/json",
-                    "Authorization": ` Bearer ${CAMPLFLARE_API_KEY}`,
+                    "Authorization": ` Bearer ${VITE_CAMPLFLARE_API_KEY}`,
                 },
             })
             .then((res) => res.json())

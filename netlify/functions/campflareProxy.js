@@ -9,7 +9,7 @@ export async function handler(event) {
       {
         headers: {
           Accept: "application/json",
-          Authorization: import.meta.env.CAMPFLARE_API_KEY, // Store API Key in Netlify ENV variables
+          Authorization: import.meta.env.VITE_CAMPFLARE_API_KEY, // Store API Key in Netlify ENV variables
         },
       }
     );
