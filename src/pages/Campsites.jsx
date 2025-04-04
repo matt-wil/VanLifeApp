@@ -12,11 +12,11 @@ function useCampgroundData(searchQuery) {
         if (!searchQuery) return;
 
         setLoading(true);
-            fetch(`/api/campgrounds?q=${searchQuery}`, {
+            fetch(`/api/campgrounds/search?q=${searchQuery}`, {
                 method: 'GET',
                 headers: {
-                    "Accept": "application/json",
-                    "Authorization": ` Bearer ${VITE_CAMPLFLARE_API_KEY}`,
+                    "accept": "application/json",
+                    "authorization": ` Bearer ${VITE_CAMPLFLARE_API_KEY}`,
                 },
             })
             .then((res) => res.json())
