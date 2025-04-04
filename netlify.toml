@@ -3,7 +3,7 @@
 
 [[redirects]]
   from = "/api/campgrounds"
-  to = "https://api.campflare.com/v1/campgrounds/search?q="
+  to = "https://api.campflare.com/v1/campgrounds/search"
   status = 200
   force = true
   headers = {Access-Control-Allow-Origin = "*"}

@@ -1,5 +1,7 @@
 import fetch from "node-fetch";
 
+const VITE_CAMPFLARE_API_KEY = import.meta.env.VITE_CAMPFLARE_API_KEY;
+
 export async function handler(event) {
   const searchQuery = event.queryStringParameters.q || "default";
 
@@ -8,8 +10,8 @@ export async function handler(event) {
       `https://api.campflare.com/v1/campgrounds/search?q=${searchQuery}`,
       {
         headers: {
-          Accept: "application/json",
-          Authorization: import.meta.env.VITE_CAMPFLARE_API_KEY, // Store API Key in Netlify ENV variables
+          accept: "application/json",
+          authorization: VITE_CAMPFLARE_API_KEY, // Store API Key in Netlify ENV variables
         },
       }
     );
