@@ -14,6 +14,13 @@ export async function handler(event) {
       }
     );
 
+    if (!response.ok) {
+        return {
+            statusCode: response.status,
+            body: JSON.stringify({ error: `API responded with status: ${response.status}` }),
+        };
+    }
+
     const data = await response.json();
 
     return {
@@ -27,7 +34,7 @@ export async function handler(event) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to fetch data" }),
+      body: JSON.stringify({ error: error.message }),
     };
   }
 }
