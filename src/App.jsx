@@ -1,10 +1,8 @@
-import { useState } from 'react'
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Vans from './pages/Vans'
+import CampgroundSearch from './pages/Campsites'
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom"
 import './App.css'
-import CampgroundSearch from '/test'
 
 function App() {
   return (
