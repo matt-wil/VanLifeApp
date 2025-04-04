@@ -1,3 +1,7 @@
+.env
+test.jsx
+server.js
+
 # Logs
 logs
 *.log
