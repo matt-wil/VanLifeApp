@@ -5,7 +5,6 @@ import VanDetail from "./pages/VanDetail"
 import CampgroundSearch from './pages/Campsites'
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom"
 import './App.css'
-import "./server"
 
 function App() {
   return (
