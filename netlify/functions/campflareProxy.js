@@ -1,9 +1,23 @@
-import fetch from "node-fetch";
-
-const VITE_CAMPFLARE_API_KEY = import.meta.env.VITE_CAMPFLARE_API_KEY;
+import fetch from 'node-fetch'; // You might need to install this: npm install node-fetch
 
 export async function handler(event) {
-  const searchQuery = event.queryStringParameters.q || "default";
+  const searchQuery = event.queryStringParameters.q;
+  const apiKey = import.meta.env.VITE_CAMPFLARE_API_KEY; // Access environment variable
+
+  if (!searchQuery) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Missing search query parameter 'q'" }),
+    };
+  }
+
+  if (!apiKey) {
+    console.error("VITE_CAMPFLARE_API_KEY environment variable not set in Netlify.");
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "API key not configured" }),
+    };
+  }
 
   try {
     const response = await fetch(
@@ -11,16 +25,17 @@ export async function handler(event) {
       {
         headers: {
           accept: "application/json",
-          authorization: VITE_CAMPFLARE_API_KEY, // Store API Key in Netlify ENV variables
+          authorization: apiKey,
         },
       }
     );
 
     if (!response.ok) {
-        return {
-            statusCode: response.status,
-            body: JSON.stringify({ error: `API responded with status: ${response.status}` }),
-        };
+      console.error(`Campflare API error: ${response.status} - ${response.statusText}`);
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({ error: `Campflare API error: ${response.statusText}` }),
+      };
     }
 
     const data = await response.json();
@@ -28,15 +43,15 @@ export async function handler(event) {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "*", // Allows CORS for all origins
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     };
   } catch (error) {
+    console.error("Error fetching from Campflare API:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: "Failed to fetch data from Campflare API" }),
     };
   }
 }

@@ -2,8 +2,8 @@
     functions = "netlify/functions"
 
 [[redirects]]
-  from = "/api/campgrounds"
-  to = "https://api.campflare.com/v1/campgrounds/search"
+  from = "/api/campgrounds/*"
+  to = "/.netlify/functions/campflareProxy/:splat"
   status = 200
   force = true
   headers = {Access-Control-Allow-Origin = "*"}

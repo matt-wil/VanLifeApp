@@ -1,4 +1,4 @@
-// API call test
+// API call
 import React, { useEffect, useState } from 'react';
 
 function useCampgroundData(searchQuery) {
@@ -10,7 +10,7 @@ function useCampgroundData(searchQuery) {
         if (!searchQuery) return;
 
         setLoading(true);
-            fetch(`/api/campflareProxy?q=${searchQuery}`, {
+            fetch(`/api/campgrounds?q=${searchQuery}`, {
                 method: 'GET',
                 headers: {
                     "accept": "application/json",
