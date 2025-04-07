@@ -16,7 +16,7 @@ function App() {
           <nav className='flex justify-end gap-5 m-4 ml-auto'>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/vans">Vans</NavLink>
-            {/* <NavLink to="/campsites">Campsites</NavLink> */}
+            <NavLink to="/campsites">Campsites</NavLink>
           </nav>
         </header>
         <Routes>
@@ -24,7 +24,7 @@ function App() {
           <Route path='/about' element={<About />}/>
           <Route path='/vans' element={<Vans />}/>
           <Route path="/vans/:id" element={<VanDetail />} />
-          {/* <Route path='/campsites' element={<CampgroundSearch />}/> */}
+          <Route path='/campsites' element={<CampgroundSearch />}/>
         </Routes>
       </BrowserRouter>
     </>
