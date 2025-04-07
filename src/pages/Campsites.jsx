@@ -1,7 +1,7 @@
 // API call
 import React, { useEffect, useState } from 'react';
 
-function useCampgroundData(searchQuery) {
+function useCampgroundData(searchQuery="moutain") {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
