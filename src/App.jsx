@@ -10,7 +10,6 @@ import "./server"
 function App() {
   return (
     <>
-    <CampgroundSearch searchQuery="mountain" />
       <BrowserRouter>
         <Routes>
         <Route element={<Layout />}>
