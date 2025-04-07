@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 export async function handler(event) {
   const searchQuery = event.queryStringParameters.q;
-  const apiKey = import.meta.env.VITE_CAMPFLARE_API_KEY; 
+  const apiKey = process.env.VITE_CAMPFLARE_API_KEY; 
 
   if (!searchQuery) {
     return {
