@@ -40,6 +40,7 @@ export default function CampgroundSearch({ searchQuery }) {
 
     return (
         <div>
+        <h1 className='text-5xl text-black'>To be Implemented</h1>
             <h2>Campgrounds for: {searchQuery}</h2>
             <ul>
                 {data.map((campground) => (
