@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
+import { IoMdLogIn } from "react-icons/io";
 
 export default function Header() {
     const activeStyles = {
@@ -35,6 +36,11 @@ export default function Header() {
                     style={({isActive}) => isActive ? activeStyles : null}>
                       Campsites
                     </NavLink>
+                <NavLink
+                    to="/login"
+                    style={({isActive}) => isActive ? activeStyles : null}>
+                    <IoMdLogIn className="login-icon" />
+                </NavLink>
             </nav>
         </header>
     )
